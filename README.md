@@ -35,3 +35,13 @@ A modern, secure starter template for building websites with Nuxt Content and Nu
 2. Install dependencies:
    ```bash
    yarn install
+
+## Setting Up for Clients
+
+# When creating a new client site:
+
+1. Create a new repository on GitHub
+2. Clone this template
+3. Update the remote URL:
+   ```bash
+   git remote set-url origin https://github.com/username/client-project.git
