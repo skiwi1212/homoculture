@@ -1,7 +1,7 @@
 <!-- layouts/default.vue -->
 <template>
     <div>
-      <HeroBanner />
+      <SiteHeader />
       <main>
         <slot />
       </main>
