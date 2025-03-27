@@ -12,6 +12,7 @@
     "@nuxt/content": "^3.4.0",
     "@nuxt/image": "^1.10.0",
     "@nuxt/ui-pro": "^3.0.1",
+    "@nuxtjs/i18n": "^9.4.0",
     "@nuxtjs/security": "^0.0.0",
     "h3": "^1.15.1",
     "nuxt-security": "^2.2.0"

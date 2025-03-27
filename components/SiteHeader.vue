@@ -1,103 +1,49 @@
 <!-- components/SiteHeader.vue -->
 <template>
-  <div class="full-width-black">
-    <header style="width: 100%; padding: 20px 0; position: relative;">
+  <div class="full-width-header">
+    <header>
       <div class="header-container">
-        <!-- Centered Logo Container -->
-        <div class="logo-container" ref="logoContainer">
-          <a href="/" class="logo-link">
+        <!-- Logo Container -->
+        <div class="logo-container">
+          <NuxtLink to="/" class="logo-link">
             <img 
               src="/images/homoculture-logo.png" 
               alt="HomoCulture" 
               class="responsive-logo"
-              ref="logo"
+              ref="logoEl"
               @load="updateMobileNavWidth"
             />
-          </a>
+          </NuxtLink>
         </div>
 
         <!-- Desktop Navigation Menu -->
-        <div class="desktop-menu" style="display: flex; justify-content: center; padding: 10px 0; position: relative;">
-          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0; position: relative;">
-            <div style="position: relative; width: 120px; text-align: center;">
-              <a href="/travel-guides" class="menu-item" style="color: white; font-weight: 400; text-decoration: none; font-size: 12px; padding: 5px 0; margin-bottom: 5px; display: block; text-align: center;">
-                Gay Travel Guides
-              </a>
-              <div class="underline" style="position: absolute; bottom: 0; left: -4px; width: calc(100% + 8px); height: 2px; background-color: #bd4c9b; transition: height 0.3s;"></div>
-            </div>
-            
-            <div style="position: relative; width: 120px; text-align: center;">
-              <a href="/culture" class="menu-item" style="color: white; font-weight: 400; text-decoration: none; font-size: 12px; padding: 5px 0; margin-bottom: 5px; display: block; text-align: center;">
-                HomoCulture
-              </a>
-              <div class="underline" style="position: absolute; bottom: 0; left: -4px; width: calc(100% + 8px); height: 2px; background-color: #ef59a1; transition: height 0.3s;"></div>
-            </div>
-            
-            <div style="position: relative; width: 120px; text-align: center;">
-              <a href="/tour" class="menu-item" style="color: white; font-weight: 400; text-decoration: none; font-size: 12px; padding: 5px 0; margin-bottom: 5px; display: block; text-align: center;">
-                HomoCulture Tour
-              </a>
-              <div class="underline" style="position: absolute; bottom: 0; left: -4px; width: calc(100% + 8px); height: 2px; background-color: #d12053; transition: height 0.3s;"></div>
-            </div>
-            
-            <div style="position: relative; width: 120px; text-align: center;">
-              <a href="/lifestyle" class="menu-item" style="color: white; font-weight: 400; text-decoration: none; font-size: 12px; padding: 5px 0; margin-bottom: 5px; display: block; text-align: center;">
-                Lifestyle
-              </a>
-              <div class="underline" style="position: absolute; bottom: 0; left: -4px; width: calc(100% + 8px); height: 2px; background-color: #f15e4c; transition: height 0.3s;"></div>
-            </div>
-            
-            <div style="position: relative; width: 120px; text-align: center;">
-              <a href="/love-sex" class="menu-item" style="color: white; font-weight: 400; text-decoration: none; font-size: 12px; padding: 5px 0; margin-bottom: 5px; display: block; text-align: center;">
-                Love and Sex
-              </a>
-              <div class="underline" style="position: absolute; bottom: 0; left: -4px; width: calc(100% + 8px); height: 2px; background-color: #f7954a; transition: height 0.3s;"></div>
-            </div>
-            
-            <div style="position: relative; width: 120px; text-align: center;">
-              <a href="/events" class="menu-item" style="color: white; font-weight: 400; text-decoration: none; font-size: 12px; padding: 5px 0; margin-bottom: 5px; display: block; text-align: center;">
-                Pride and Events
-              </a>
-              <div class="underline" style="position: absolute; bottom: 0; left: -4px; width: calc(100% + 8px); height: 2px; background-color: #e6ba06; transition: height 0.3s;"></div>
-            </div>
-            
-            <div style="position: relative; width: 120px; text-align: center;">
-              <a href="/advice" class="menu-item" style="color: white; font-weight: 400; text-decoration: none; font-size: 12px; padding: 5px 0; margin-bottom: 5px; display: block; text-align: center;">
-                Travel Advice
-              </a>
-              <div class="underline" style="position: absolute; bottom: 0; left: -4px; width: calc(100% + 8px); height: 2px; background-color: #a7cd39; transition: height 0.3s;"></div>
+        <nav class="desktop-menu">
+          <div class="menu-items-wrapper">
+            <div v-for="(item, index) in menuItems" 
+                 :key="index" 
+                 class="menu-item-container">
+              <NuxtLink :to="item.path" class="menu-item">
+                {{ item.label }}
+              </NuxtLink>
+              <div class="underline"></div>
             </div>
           </div>
-        </div>
+        </nav>
 
         <!-- Mobile Navigation -->
         <nav class="mobile-nav" :style="mobileNavStyle">
-          <NuxtLink to="/" class="nav-item">
-            <UIcon name="i-heroicons-home" size="24" />
-            <span>Home</span>
+          <NuxtLink v-for="(item, index) in mobileMenuItems"
+                    :key="index"
+                    :to="item.path"
+                    class="nav-item">
+            <UIcon :name="item.icon" size="24" />
+            <span>{{ item.label }}</span>
           </NuxtLink>
           
-          <NuxtLink to="/search" class="nav-item">
-            <UIcon name="i-heroicons-magnifying-glass" size="24" />
-            <span>Search</span>
-          </NuxtLink>
-          
-          <button class="nav-item">
-            <div class="more-icon">
-              <UIcon name="i-heroicons-bars-3" size="24" />
-            </div>
+          <button class="nav-item" @click="handleMoreClick">
+            <UIcon name="i-heroicons-bars-3" size="24" />
             <span>More</span>
           </button>
-          
-          <NuxtLink to="/tour" class="nav-item">
-            <UIcon name="i-heroicons-map" size="24" />
-            <span>Tour</span>
-          </NuxtLink>
-          
-          <NuxtLink to="/galleries" class="nav-item">
-            <UIcon name="i-heroicons-photo" size="24" />
-            <span>Galleries</span>
-          </NuxtLink>
         </nav>
       </div>
       
@@ -107,49 +53,85 @@
   </div>
 </template>
 
+<script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-<script>
-export default {
-  name: 'SiteHeader',
-  data() {
-    return {
-      mobileNavStyle: {
-        width: '0px'
-      }
-    }
-  },
-  mounted() {
-    this.updateMobileNavWidth()
-    window.addEventListener('resize', this.updateMobileNavWidth)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.updateMobileNavWidth)
-  },
-  methods: {
-    updateMobileNavWidth() {
-      if (this.$refs.logo) {
-        const logoWidth = this.$refs.logo.offsetWidth
-        this.mobileNavStyle = {
-          width: `${logoWidth}px`,
-          margin: '0 auto'
-        }
-      }
+interface MenuItem {
+  path: string
+  label: string
+  icon?: string
+}
+
+const logoEl = ref<HTMLImageElement | null>(null)
+const mobileNavStyle = ref({ width: '0px' })
+
+const menuItems: MenuItem[] = [
+  { path: '/travel-guides', label: 'Gay Travel Guides' },
+  { path: '/culture', label: 'HomoCulture' },
+  { path: '/tour', label: 'HomoCulture Tour' },
+  { path: '/lifestyle', label: 'Lifestyle' },
+  { path: '/love-sex', label: 'Love and Sex' },
+  { path: '/events', label: 'Pride and Events' },
+  { path: '/advice', label: 'Travel Advice' }
+]
+
+const mobileMenuItems: MenuItem[] = [
+  { path: '/', label: 'Home', icon: 'i-heroicons-home' },
+  { path: '/search', label: 'Search', icon: 'i-heroicons-magnifying-glass' },
+  { path: '/tour', label: 'Tour', icon: 'i-heroicons-map' },
+  { path: '/galleries', label: 'Galleries', icon: 'i-heroicons-photo' }
+]
+
+const updateMobileNavWidth = () => {
+  if (logoEl.value) {
+    const logoWidth = logoEl.value.offsetWidth
+    mobileNavStyle.value = {
+      width: `${logoWidth}px`,
+      margin: '0 auto'
     }
   }
 }
+
+const handleMoreClick = () => {
+  // Implement more menu functionality
+  console.log('More menu clicked')
+}
+
+onMounted(() => {
+  updateMobileNavWidth()
+  window.addEventListener('resize', updateMobileNavWidth)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateMobileNavWidth)
+})
 </script>
 
 <style scoped>
-.full-width-black {
-  background-color: black;
+.full-width-header {
+  background: black;
   width: 100%;
   position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: black;
 }
 
 .header-container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
+  background: black;
 }
 
 .logo-container {
@@ -159,6 +141,8 @@ export default {
   padding: 20px 0;
   width: 100%;
   position: relative;
+  background: black;
+  margin: 0;
 }
 
 .logo-link {
@@ -178,6 +162,76 @@ export default {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.desktop-menu {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 50px;
+  position: relative;
+}
+
+.menu-items-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  position: relative;
+}
+
+.menu-item-container {
+  position: relative;
+  width: 120px;
+  text-align: center;
+}
+
+.menu-item {
+  color: white;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 12px;
+  padding: 5px 0;
+  margin-bottom: 5px;
+  display: block;
+  text-align: center;
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  width: calc(100% + 8px);
+  height: 2px;
+  background-color: #bd4c9b;
+  transition: height 0.3s;
+}
+
+.menu-item-container:nth-child(2) .underline {
+  background-color: #ef59a1;
+}
+
+.menu-item-container:nth-child(3) .underline {
+  background-color: #d12053;
+}
+
+.menu-item-container:nth-child(4) .underline {
+  background-color: #f15e4c;
+}
+
+.menu-item-container:nth-child(5) .underline {
+  background-color: #f7954a;
+}
+
+.menu-item-container:nth-child(6) .underline {
+  background-color: #e6ba06;
+}
+
+.menu-item-container:nth-child(7) .underline {
+  background-color: #a7cd39;
+}
+
+.menu-item:hover + .underline {
+  height: 5px;
 }
 
 .mobile-nav {
@@ -208,13 +262,6 @@ export default {
   align-items: center;
 }
 
-.nav-item .arrow {
-  position: absolute;
-  right: -12px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 .nav-item:active,
 .nav-item.router-link-active {
   color: #ee4d9c;
@@ -235,25 +282,13 @@ export default {
   bottom: 0;
 }
 
-.menu-item:hover + .underline {
-  height: 5px !important;
-}
-
 @media (max-width: 1200px) {
-  .header-container {
-    padding: 0 20px;
-  }
-  
-  .responsive-logo {
-    height: calc(60px * 0.9);
-  }
-  
   .menu-item {
-    font-size: calc(12px * 0.9) !important;
+    font-size: calc(12px * 0.9);
   }
   
-  div[style*="width: 120px"] {
-    width: 100px !important;
+  .menu-item-container {
+    width: 100px;
   }
 }
 
@@ -263,17 +298,17 @@ export default {
   }
   
   .menu-item {
-    font-size: calc(12px * 0.8) !important;
+    font-size: calc(12px * 0.8);
   }
   
-  div[style*="width: 120px"] {
-    width: 90px !important;
+  .menu-item-container {
+    width: 90px;
   }
 }
 
 @media (max-width: 768px) {
   .desktop-menu {
-    display: none !important;
+    display: none;
   }
   
   .mobile-nav {
@@ -285,4 +320,3 @@ export default {
   }
 }
 </style>
-

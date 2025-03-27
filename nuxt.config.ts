@@ -1,13 +1,42 @@
+// nuxt.config.ts
 export default defineNuxtConfig({
+  // Core Modules
   modules: [
     '@nuxt/ui-pro',
     '@nuxt/content',
     '@nuxt/image',
-    'nuxt-security'
+    'nuxt-security',
+    '@nuxtjs/i18n'
   ],
 
+  // App Configuration
+  app: {
+    head: {
+      htmlAttrs: {
+        style: 'margin: 0; padding: 0;'
+      },
+      bodyAttrs: {
+        style: 'margin: 0; padding: 0;'
+      },
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Anybody:wght@400;500;600;700&display=swap'
+        }
+      ]
+    }
+  },
+
+  // Internationalization
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en'
+  },
+
+  // Styling
   css: ['~/assets/css/tailwind.css'],
 
+  // UI Configuration
   ui: {
     icons: ['heroicons'],
     colors: {
@@ -26,6 +55,7 @@ export default defineNuxtConfig({
     }
   },
 
+  // Content Configuration
   content: {
     documentDriven: true,
     markdown: {
@@ -39,6 +69,7 @@ export default defineNuxtConfig({
     }
   },
 
+  // Security Configuration
   security: {
     headers: {
       crossOriginEmbedderPolicy: 'unsafe-none',
@@ -54,6 +85,7 @@ export default defineNuxtConfig({
     enabled: true
   },
 
+  // Image Configuration
   image: {
     provider: 'ipx',
     screens: {
@@ -95,24 +127,16 @@ export default defineNuxtConfig({
     }
   },
 
-  app: {
-    head: {
-      link: [
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Anybody:wght@400;500;600;700&display=swap'
-        }
-      ]
-    }
-  },
-
+  // Development Configuration
   devtools: {
     enabled: true
   },
 
+  // TypeScript Configuration
   typescript: {
     strict: true
   },
 
+  // Compatibility Settings
   compatibilityDate: '2025-03-27'
 })
