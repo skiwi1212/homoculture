@@ -70,7 +70,7 @@ import PartnersSlider from '../components/PartnersSlider.vue'
 
 .hero-section {
   position: relative;
-  z-index: -999;
+  z-index: 1; /* Changed from -999 to 1 */
 }
 
 /* Leaderboard and Search Layout */

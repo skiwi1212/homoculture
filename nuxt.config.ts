@@ -22,6 +22,11 @@ export default defineNuxtConfig({
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Anybody:wght@400;500;600;700&display=swap'
+        },
+        {
+          rel: 'preload',
+          href: '/images/home-hero-image.jpg',
+          as: 'image'
         }
       ]
     }

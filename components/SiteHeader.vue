@@ -524,7 +524,7 @@ header {
   justify-content: center;
   align-items: center;
   width: fit-content;
-  position: relative;
+  margin: 0 auto;
 }
 
 .responsive-logo {
@@ -533,9 +533,7 @@ header {
   max-width: 100%;
   object-fit: contain;
   display: block;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 0 auto;
 }
 
 .desktop-menu {
@@ -646,10 +644,14 @@ header {
 
 .mobile-nav {
   display: none;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
   margin: 15px auto;
   padding: 0 0 15px 0;
+  width: 280px !important; /* Fixed width with !important to override inline styles */
+  min-width: 280px;
+  max-width: 280px;
+  transition: none !important; /* Prevent any transitions */
 }
 
 .nav-item {
@@ -664,11 +666,14 @@ header {
   border: none;
   cursor: pointer;
   padding: 0;
+  width: 56px;
   -webkit-tap-highlight-color: transparent;
 }
 
 .nav-item span {
   margin-top: 4px;
+  white-space: nowrap;
+  font-size: 11px;
 }
 
 .rainbow-bar {
@@ -907,6 +912,7 @@ header {
   .mobile-nav {
     display: flex;
     padding-bottom: 20px;
+    width: 280px !important; /* Reinforced in media query */
   }
   
   .responsive-logo {
@@ -923,6 +929,10 @@ header {
 @media (max-width: 480px) {
   .header-container-wrapper {
     padding: 0 10px;
+  }
+  
+  .mobile-nav {
+    width: 280px !important; /* Reinforced in smallest screens */
   }
 }
 </style>
