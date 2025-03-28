@@ -35,7 +35,10 @@ export default defineNuxtConfig({
   // Internationalization
   i18n: {
     locales: ['en'],
-    defaultLocale: 'en'
+    defaultLocale: 'en',
+    bundle: {
+      optimizeTranslationDirective: false
+    }
   },
 
   // Styling
@@ -129,6 +132,22 @@ export default defineNuxtConfig({
           fit: 'cover',
         }
       }
+    }
+  },
+
+  // Nitro Configuration to fix prerendering issues
+  nitro: {
+    prerender: {
+      failOnError: false,
+      crawlLinks: false,
+      routes: [
+        '/',
+        '/about-homoculture',
+        '/homoculture-tour',
+        '/gay-travel-guides',
+        '/contact-us',
+        '/privacy-policy'
+      ]
     }
   },
 
