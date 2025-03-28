@@ -1,0 +1,1 @@
+import{k as c,e as t,h as o,j as s}from"./B0V24EwP.js";const r={},a={class:"container mx-auto py-10"};function n(i,e){return s(),t("div",a,e[0]||(e[0]=[o("h1",{class:"text-3xl font-bold mb-6"},"Privacy Policy",-1),o("p",{class:"mb-4"},"Placeholder content for Privacy Policy. This page is under construction.",-1)]))}const d=c(r,[["render",n]]);export{d as default};

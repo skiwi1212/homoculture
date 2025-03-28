@@ -1,0 +1,1 @@
+import{k as o,e as s,h as e,j as c}from"./B0V24EwP.js";const n={},a={class:"container mx-auto py-10"};function r(l,t){return c(),s("div",a,t[0]||(t[0]=[e("h1",{class:"text-3xl font-bold mb-6"},"Contact Us",-1),e("p",{class:"mb-4"},"Placeholder content for Contact Us. This page is under construction.",-1)]))}const i=o(n,[["render",r]]);export{i as default};

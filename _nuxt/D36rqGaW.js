@@ -1,0 +1,1 @@
+import{c as r}from"./D2G85vdH.js";import{aG as o}from"./B0V24EwP.js";const[n,c]=r("ConfigProvider");let i=0;function f(d,e="reka"){const t=n({useId:void 0});return o?`${e}-${o()}`:t.useId?`${e}-${t.useId()}`:`${e}-${++i}`}export{n as i,f as u};

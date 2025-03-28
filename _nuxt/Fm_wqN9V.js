@@ -1,0 +1,1 @@
+import{k as t,e as o,h as s,j as a}from"./B0V24EwP.js";const n={},r={class:"container mx-auto py-10"};function c(l,e){return a(),o("div",r,e[0]||(e[0]=[s("h1",{class:"text-3xl font-bold mb-6"},"Gay Travel Guides",-1),s("p",{class:"mb-4"},"Placeholder content for Gay Travel Guides. This page is under construction.",-1)]))}const i=t(n,[["render",c]]);export{i as default};

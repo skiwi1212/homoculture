@@ -1,0 +1,1 @@
+import{k as r,e as a,h as n,j as s}from"./B0V24EwP.js";const t={};function c(o,e){return s(),a("div",null,e[0]||(e[0]=[n("h1",null,"Search Page",-1)]))}const f=r(t,[["render",c]]);export{f as default};

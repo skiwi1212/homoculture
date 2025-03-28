@@ -1,0 +1,1 @@
+import{am as a,an as c,ao as u,L as m}from"./B0V24EwP.js";import{u as p}from"./T18DsmPv.js";function i(t){const s=a(),o=s==null?void 0:s.type.emits,r={};return o!=null&&o.length,o==null||o.forEach(e=>{r[c(u(e))]=(...n)=>t(e,...n)}),r}function l(t,s){const o=p(t),r=s?i(s):{};return m(()=>({...o.value,...r}))}export{l as u};

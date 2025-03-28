@@ -1,0 +1,1 @@
+import{k as r,e as s,h as a,j as l}from"./B0V24EwP.js";const n={};function t(o,e){return l(),s("div",null,e[0]||(e[0]=[a("h1",null,"Galleries Page",-1)]))}const f=r(n,[["render",t]]);export{f as default};

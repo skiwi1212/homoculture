@@ -1,0 +1,1 @@
+import{k as e,e as s,h as t,j as r}from"./B0V24EwP.js";const c={},n={class:"container mx-auto py-10"};function a(u,o){return r(),s("div",n,o[0]||(o[0]=[t("h1",{class:"text-3xl font-bold mb-6"},"About HomoCulture",-1),t("p",{class:"mb-4"},"Placeholder content for About HomoCulture. This page is under construction.",-1)]))}const m=e(c,[["render",a]]);export{m as default};
