@@ -1,4 +1,3 @@
-# content/articles/schema.yaml
 type: object
 title: Article
 properties:
@@ -12,6 +11,12 @@ properties:
     type: markdown
     required: true
     description: "Main article content"
+    ui:
+      component: prose-mirror
+      toolbar: ["bold", "italic", "link", "heading", "image", "bulletList", "orderedList"]
+      images:
+        dir: public/images/articles
+        accept: ["image/*"]
 
   excerpt:
     type: string
@@ -19,11 +24,15 @@ properties:
     ui:
       component: textarea
 
-  # Media
+  # Featured Image
   featuredImage:
     type: string
     required: true
     description: "Featured image"
+    ui:
+      component: image
+      dir: public/images/featured
+      accept: ["image/*"]
 
   # Authors
   author:
@@ -89,7 +98,7 @@ properties:
     type: date
     description: "Publication date"
 
-  # Squirrly SEO
+  # SEO
   seo:
     type: object
     properties:
@@ -119,6 +128,10 @@ properties:
           ogImage:
             type: string
             description: "Social Media Image"
+            ui:
+              component: image
+              dir: public/images/social
+              accept: ["image/*"]
 
   # Discussion
   comments:
