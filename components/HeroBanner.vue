@@ -29,6 +29,7 @@ export default {
   margin: 0;
   padding: 0;
   background: black;
+  z-index: -999;
 }
 
 .hero-image {
@@ -43,6 +44,7 @@ export default {
   padding: 0;
   display: block;
   transform: scale(1.01);
+  z-index: -999;
 }
 
 .hero-overlay {
@@ -56,7 +58,7 @@ export default {
   justify-content: center;
   align-items: center;
   color: white;
-  z-index: 1;
+  z-index: -998;
 }
 
 @media (max-width: 768px) {
@@ -71,5 +73,6 @@ export default {
   }
 }
 </style>
+
 
 

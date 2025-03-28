@@ -1,6 +1,6 @@
 <!-- components/ArticleCard.vue -->
 <template>
-  <UCard class="article-card" :ui="{ rounded: 'none' }">
+  <UCard class="article-card" :ui="{ rounded: 'none', hover: false }">
     <template #header>
       <UImage
         :src="article.image"
@@ -16,7 +16,13 @@
     <h3 class="article-title">{{ article.title }}</h3>
     
     <div class="article-meta">
-      <span>by {{ article.author }}</span>
+      <span>by</span>
+      <NuxtLink 
+        :to="`/author/${article.author.toLowerCase().replace(/\s+/g, '-')}`" 
+        class="author-link"
+      >
+        {{ article.author }}
+      </NuxtLink>
       <span>•</span>
       <span>{{ formatDate(article.date) }}</span>
       <span>•</span>
@@ -26,16 +32,20 @@
     <p class="article-description">{{ article.description }}</p>
     
     <template #footer>
-      <UButton
-        color="primary"
-        variant="ghost"
+      <NuxtLink 
         :to="article.path"
-        icon="i-heroicons-arrow-right"
-        trailing
-        :ui="{ rounded: 'none' }"
+        class="read-more-link"
       >
-        Read more
-      </UButton>
+        <UButton
+          color="primary"
+          variant="ghost"
+          icon="i-heroicons-arrow-right"
+          trailing
+          :ui="{ rounded: 'none' }"
+        >
+          Read more
+        </UButton>
+      </NuxtLink>
     </template>
   </UCard>
 </template>
@@ -47,6 +57,14 @@ defineProps({
     required: true
   }
 })
+
+const formatDate = (date) => {
+  return new Date(date).toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  })
+}
 </script>
 
 <style scoped>
@@ -54,6 +72,10 @@ defineProps({
   height: 100%;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
+  transition: none;
+  cursor: default;
 }
 
 .article-image {
@@ -61,6 +83,8 @@ defineProps({
   width: 100%;
   object-fit: cover;
   border-radius: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .category-badge {
@@ -73,6 +97,7 @@ defineProps({
   font-weight: 600;
   margin-bottom: 0.5rem;
   line-height: 1.4;
+  color: #333;
 }
 
 .article-meta {
@@ -84,10 +109,27 @@ defineProps({
   margin-bottom: 1rem;
 }
 
+.author-link {
+  color: #ee4d9c;
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.author-link:hover {
+  text-decoration: underline;
+}
+
 .article-description {
   color: #4b5563;
   margin-bottom: 1rem;
   flex-grow: 1;
+}
+
+.read-more-link {
+  text-decoration: none;
+  width: fit-content;
 }
 
 @media (max-width: 768px) {

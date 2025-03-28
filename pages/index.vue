@@ -2,7 +2,9 @@
 <template>
   <div class="page-wrapper">
     <!-- Hero Section -->
-    <HeroBanner />
+    <div class="hero-section">
+      <HeroBanner />
+    </div>
     
     <!-- Featured Content -->
     <FeaturedContentBlock />
@@ -63,6 +65,12 @@ import PartnersSlider from '../components/PartnersSlider.vue'
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.hero-section {
+  position: relative;
+  z-index: -999;
 }
 
 /* Leaderboard and Search Layout */

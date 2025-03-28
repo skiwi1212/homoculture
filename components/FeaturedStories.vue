@@ -9,19 +9,29 @@
             <article v-for="(story, index) in [1, 2, 3]" 
                     :key="index" 
                     :class="['story-card', `story-card-${index + 1}`]">
-              <NuxtLink to="/">
-                <div class="story-content">
-                  <span class="story-category">Coming Soon</span>
-                  <h3 class="story-title">Story {{ index + 1 }}</h3>
-                  <div class="story-meta">
-                    Add your content here
-                  </div>
-                  <p class="story-excerpt">
-                    This space will be populated with featured stories tagged in Nuxt Studio
-                  </p>
-                  <span class="read-more">Read More</span>
+              <div class="story-content">
+                <span class="story-category">Coming Soon</span>
+                <h3 class="story-title">Story {{ index + 1 }}</h3>
+                <div class="story-meta">
+                  <span>by</span>
+                  <NuxtLink 
+                    :to="`/author/author-name`" 
+                    class="author-link"
+                  >
+                    Author Name
+                  </NuxtLink>
+                  <span>•</span>
+                  <span>Date</span>
+                  <span>•</span>
+                  <span>5 min read</span>
                 </div>
-              </NuxtLink>
+                <p class="story-excerpt">
+                  This space will be populated with featured stories tagged in Nuxt Studio
+                </p>
+                <NuxtLink to="/" class="read-more">
+                  Read More
+                </NuxtLink>
+              </div>
             </article>
           </div>
         </div>
@@ -68,6 +78,7 @@
   min-height: 300px;
   display: flex;
   flex-direction: column;
+  cursor: default;
 }
 
 /* Different background colors for each card */
@@ -81,12 +92,6 @@
 
 .story-card-3 {
   background-color: #ffe4e6;
-}
-
-.story-card a {
-  text-decoration: none;
-  color: inherit;
-  height: 100%;
 }
 
 .story-content {
@@ -112,9 +117,24 @@
 }
 
 .story-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 12px;
   color: #666;
   margin-bottom: 12px;
+}
+
+.author-link {
+  color: #ee4d9c;
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.author-link:hover {
+  text-decoration: underline;
 }
 
 .story-excerpt {
@@ -130,6 +150,12 @@
   font-size: 14px;
   font-weight: 500;
   margin-top: auto;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.read-more:hover {
+  text-decoration: underline;
 }
 
 .sidebar {

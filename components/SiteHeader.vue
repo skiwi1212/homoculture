@@ -1,4 +1,3 @@
-<!-- components/SiteHeader.vue -->
 <template>
   <div class="full-width-header">
     <header>
@@ -23,7 +22,9 @@
               <div class="menu-items-wrapper">
                 <div v-for="(item, index) in menuItems" 
                     :key="index" 
-                    class="menu-item-container">
+                    class="menu-item-container"
+                    :data-menu-id="item.id"
+                >
                   <span 
                     @mouseenter="showSubmenu(item.id)" 
                     class="menu-item"
@@ -307,6 +308,13 @@ const menuContent = {
 
 const showSubmenu = (id: string) => {
   activeSubmenu.value = id
+  // Get the menu item element
+  const menuItem = document.querySelector(`[data-menu-id="${id}"]`)
+  if (menuItem) {
+    const rect = menuItem.getBoundingClientRect()
+    document.documentElement.style.setProperty('--submenu-top', `${rect.bottom}px`)
+    document.documentElement.style.setProperty('--submenu-left', `${rect.left + rect.width/2}px`)
+  }
 }
 
 const hideSubmenu = () => {
@@ -470,7 +478,7 @@ const getCategoryTitle = (categoryId: string) => {
   right: 0;
   margin: 0;
   padding: 0;
-  z-index: 100;
+  z-index: 999999;
   overflow-x: hidden;
 }
 
@@ -605,13 +613,13 @@ header {
 }
 
 .submenu-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 50%;
+  position: fixed;
+  top: var(--submenu-top, auto);
+  left: var(--submenu-left, 50%);
   transform: translateX(-50%);
   width: 200px;
   background-color: black;
-  z-index: 1000;
+  z-index: 999999;
   padding: 10px;
   border-radius: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -624,7 +632,7 @@ header {
 }
 
 .submenu-link {
-  color: #8b9dc3;
+  color: white;
   text-decoration: none;
   padding: 4px 8px;
   font-size: 14px;
@@ -633,7 +641,7 @@ header {
 }
 
 .submenu-link:hover {
-  color: white;
+  color: #ee4d9c;
 }
 
 .mobile-nav {
@@ -683,10 +691,11 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 9999;
+  z-index: 999999;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .mobile-modal-overlay {
@@ -695,8 +704,6 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1;
 }
 
 .mobile-modal-content {
@@ -706,7 +713,6 @@ header {
   max-height: 80vh;
   background-color: black;
   border-radius: 8px;
-  z-index: 2;
   overflow-y: auto;
   overflow-x: hidden;
   padding: 20px;
@@ -920,4 +926,3 @@ header {
   }
 }
 </style>
-

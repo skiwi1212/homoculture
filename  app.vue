@@ -33,6 +33,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    z-index: 0; /* Add this */
   }
   
   /* Main container */
@@ -40,6 +41,7 @@
     flex: 1 0 auto;
     width: 100%;
     position: relative;
+    z-index: 1; /* Add this */
   }
   
   /* Loading indicator customization */
