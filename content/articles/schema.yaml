@@ -1,0 +1,132 @@
+title: Article
+properties:
+  # Basic Content
+  title:
+    type: string
+    required: true
+    description: "Article title"
+
+  content:
+    type: markdown
+    required: true
+    description: "Main article content"
+
+  excerpt:
+    type: string
+    description: "Short preview text"
+    ui:
+      component: textarea
+
+  # Media
+  featuredImage:
+    type: string
+    required: true
+    description: "Featured image"
+
+  # Authors
+  author:
+    type: string
+    required: true
+    enum: [
+      "Brian Webb",
+      "Tim Slater",
+      "Triston Brewer"
+    ]
+    description: "Select article author"
+
+  # Categories
+  category:
+    type: array
+    items:
+      type: string
+      enum: [
+        # Gay Travel Guides
+        "Canada",
+        "Europe",
+        "Mexico",
+        "United Kingdom",
+        "United States",
+        "Other Destinations",
+        
+        # Culture
+        "Coming Out",
+        "Days of Awareness",
+        "Drag Culture",
+        "Gay Culture",
+        "LGBTQ+ Allies",
+        "Queer History",
+        "Literature, Art and Culture",
+        
+        # Lifestyle
+        "Fashion and Style",
+        "Health and Fitness",
+        "Life Skills and Planning",
+        "Parenting and Family",
+        
+        # Love & Sex
+        "Casual Encounters",
+        "Kink",
+        "Relationships and Dating",
+        
+        # Events
+        "Celebrate Pride",
+        "Gay Events and Nightlife",
+        "Pride Events",
+        
+        # Travel Advice
+        "Flights & Accommodation"
+      ]
+
+  # Publishing
+  status:
+    type: string
+    enum: ["draft", "published"]
+    default: "draft"
+
+  publishDate:
+    type: date
+    description: "Publication date"
+
+  # Squirrly SEO
+  seo:
+    type: object
+    properties:
+      focusKeyword:
+        type: string
+        description: "Main keyword (Squirrly Focus Keyword)"
+      
+      metaTitle:
+        type: string
+        description: "SEO Meta Title"
+        
+      metaDescription:
+        type: string
+        description: "SEO Meta Description"
+        ui:
+          component: textarea
+          
+      social:
+        type: object
+        properties:
+          ogTitle:
+            type: string
+            description: "Social Media Title"
+          ogDescription:
+            type: string
+            description: "Social Media Description"
+          ogImage:
+            type: string
+            description: "Social Media Image"
+
+  # Discussion
+  comments:
+    type: boolean
+    description: "Enable comments"
+    default: true
+
+  # Additional Meta
+  tags:
+    type: array
+    items:
+      type: string
+    description: "Add tags"
