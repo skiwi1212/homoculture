@@ -1,8 +1,9 @@
 {
-    "navigation": true,
-    "github": {
-      "dir": "content",
-      "branch": "main"
-    }
-  }
-  
+  "navigation": true,
+  "github": {
+    "dir": "content",
+    "branch": "main"
+  },
+  "title": "HomoCulture",
+  "version": 1
+}

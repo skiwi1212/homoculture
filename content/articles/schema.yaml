@@ -1,3 +1,5 @@
+# content/articles/schema.yaml
+type: object
 title: Article
 properties:
   # Basic Content
@@ -93,7 +95,7 @@ properties:
     properties:
       focusKeyword:
         type: string
-        description: "Main keyword (Squirrly Focus Keyword)"
+        description: "Main SEO keyword"
       
       metaTitle:
         type: string
