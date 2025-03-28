@@ -1,50 +1,59 @@
 <!-- components/FeaturedStories.vue -->
 <template>
-  <div class="featured-stories-container">
-    <!-- Main content area (80%) -->
-    <div class="stories-wrapper">
-      <div class="stories-grid">
-        <article v-for="(story, index) in [1, 2, 3]" 
-                 :key="index" 
-                 :class="['story-card', `story-card-${index + 1}`]">
-          <NuxtLink to="/">
-            <div class="story-content">
-              <span class="story-category">Coming Soon</span>
-              <h3 class="story-title">Story {{ index + 1 }}</h3>
-              <div class="story-meta">
-                Add your content here
-              </div>
-              <p class="story-excerpt">
-                This space will be populated with featured stories tagged in Nuxt Studio
-              </p>
-              <span class="read-more">Read More</span>
-            </div>
-          </NuxtLink>
-        </article>
-      </div>
-    </div>
+  <section class="container-safe py-8">
+    <div class="mobile-safe">
+      <div class="featured-stories-container">
+        <!-- Main content area -->
+        <div class="stories-wrapper">
+          <div class="stories-grid">
+            <article v-for="(story, index) in [1, 2, 3]" 
+                    :key="index" 
+                    :class="['story-card', `story-card-${index + 1}`]">
+              <NuxtLink to="/">
+                <div class="story-content">
+                  <span class="story-category">Coming Soon</span>
+                  <h3 class="story-title">Story {{ index + 1 }}</h3>
+                  <div class="story-meta">
+                    Add your content here
+                  </div>
+                  <p class="story-excerpt">
+                    This space will be populated with featured stories tagged in Nuxt Studio
+                  </p>
+                  <span class="read-more">Read More</span>
+                </div>
+              </NuxtLink>
+            </article>
+          </div>
+        </div>
 
-    <!-- Sidebar (20%) -->
-    <div class="sidebar">
-      <div class="ad-slot">
-        <div class="ad-placeholder">
-          Advertisement
-          <br>160x600
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <div class="ad-slot">
+            <div class="ad-placeholder">
+              Advertisement
+              <br>160x600
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
+
+<script setup>
+// Empty script setup
+</script>
 
 <style scoped>
 .featured-stories-container {
   display: flex;
   gap: 20px;
-  margin-top: 20px;
+  width: 100%;
+  align-items: flex-start;
 }
 
 .stories-wrapper {
-  flex: 0 0 80%;
+  flex: 0 0 calc(100% - 180px);
 }
 
 .stories-grid {
@@ -54,7 +63,6 @@
 }
 
 .story-card {
-  border-radius: 4px;
   overflow: hidden;
   padding: 20px;
   min-height: 300px;
@@ -125,12 +133,11 @@
 }
 
 .sidebar {
-  flex: 0 0 20%;
+  flex: 0 0 160px;
 }
 
 .ad-slot {
   width: 160px;
-  position: relative;
 }
 
 .ad-placeholder {
@@ -144,14 +151,12 @@
   color: #666;
 }
 
-/* Tablet: 2x3 grid */
 @media (max-width: 1024px) {
   .stories-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Mobile: 1x3 grid */
 @media (max-width: 768px) {
   .featured-stories-container {
     flex-direction: column;
@@ -167,6 +172,12 @@
 
   .sidebar {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-card {
+    padding: 15px;
   }
 }
 </style>

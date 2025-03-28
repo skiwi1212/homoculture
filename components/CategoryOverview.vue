@@ -1,6 +1,6 @@
 <!-- components/CategoryOverview.vue -->
 <template>
-    <div class="category-overview">
+    <section class="container-safe py-[60px] bg-white">
       <div class="categories-container">
         <!-- Gay Travel Guides Section -->
         <div class="category-item">
@@ -15,8 +15,8 @@
           <div class="category-description">
             <p>
               Discover LGBTQ+ inclusive destinations and plan your next adventure with our comprehensive 
-              <a href="/gay-travel-guides" class="pink-link">gay travel guides</a> and expert 
-              <a href="/travel-tips" class="pink-link">travel tips</a> and recommendations.
+              <NuxtLink to="/gay-travel-guides" class="pink-link">gay travel guides</NuxtLink> and expert 
+              <NuxtLink to="/travel-tips" class="pink-link">travel tips</NuxtLink> and recommendations.
             </p>
           </div>
         </div>
@@ -33,9 +33,9 @@
           <h2 class="category-title">Pride Events</h2>
           <div class="category-description">
             <p>
-              Explore vibrant <a href="/pride-events" class="pink-link">Pride events</a> worldwide, celebrating 
-              <a href="/lgbtq-identity" class="pink-link">LGBTQ+ identity</a>, diversity, and equality through parades, festivals, and 
-              <a href="/events-and-nightlife" class="pink-link">events and nightlife</a>.
+              Explore vibrant <NuxtLink to="/pride-events" class="pink-link">Pride events</NuxtLink> worldwide, celebrating 
+              <NuxtLink to="/lgbtq-identity" class="pink-link">LGBTQ+ identity</NuxtLink>, diversity, and equality through parades, festivals, and 
+              <NuxtLink to="/events-and-nightlife" class="pink-link">events and nightlife</NuxtLink>.
             </p>
           </div>
         </div>
@@ -52,43 +52,37 @@
           <h2 class="category-title">HomoCulture Tour</h2>
           <div class="category-description">
             <p>
-              Follow our travels on the <a href="/homoculture-tour" class="pink-link">HomoCulture Tour</a> to gay events and destinations as we go discover, celebrate, and explore LGBTQ life across the globe.
+              Follow our travels on the <NuxtLink to="/homoculture-tour" class="pink-link">HomoCulture Tour</NuxtLink> to gay events and destinations as we go discover, celebrate, and explore LGBTQ life across the globe.
             </p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </template>
   
-  <script>
-  export default {
-    name: 'CategoryOverview'
-  }
+  <script setup>
+  // Empty script setup
   </script>
   
   <style scoped>
-  .category-overview {
-    width: 100%;
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
   .categories-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+    width: 100%;
   }
   
   .category-item {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
   
   .image-container {
     aspect-ratio: 4/3;
     overflow: hidden;
     margin-bottom: 20px;
+    width: 100%;
   }
   
   .category-image {
@@ -127,9 +121,19 @@
     text-decoration: underline;
   }
   
-  @media (max-width: 992px) {
-    .categories-container {
-      grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 1024px) {
+    .category-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+  
+    .category-description {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  
+    .image-container {
+      margin-bottom: 15px;
     }
   }
   
@@ -138,5 +142,19 @@
       grid-template-columns: 1fr;
       gap: 40px;
     }
+  
+    .category-title {
+      font-size: 22px;
+    }
+  
+    .category-description {
+      font-size: 15px;
+    }
+  
+    .image-container {
+      aspect-ratio: 16/9;
+      margin-bottom: 20px;
+    }
   }
   </style>
+  

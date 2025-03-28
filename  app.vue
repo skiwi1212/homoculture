@@ -1,55 +1,62 @@
 <!-- app.vue -->
 <template>
-    <div id="app">
-      <SiteHeader />
-      <main>
-        <UContainer class="site-container">
+    <div class="site-wrapper">
+      <NuxtLoadingIndicator />
+      <div class="main-container">
+        <NuxtLayout>
           <NuxtPage />
-        </UContainer>
-      </main>
+        </NuxtLayout>
+      </div>
     </div>
   </template>
   
   <style>
-  /* Critical reset */
-  :root {
+  /* Reset and base styles */
+  * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
   
-  html, 
-  body {
-    margin: 0;
-    padding: 0;
-    background: black;
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Main wrapper */
+  .site-wrapper {
+    width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
   }
   
-  #app {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    background: white;
-  }
-  
-  .site-container {
-    max-width: 1200px !important;
-    margin: 0 auto;
-    padding: 0 32px;
+  /* Main container */
+  .main-container {
+    flex: 1 0 auto;
     width: 100%;
+    position: relative;
   }
   
-  @media (max-width: 992px) {
-    .site-container {
-      padding: 0 20px;
-    }
+  /* Loading indicator customization */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
   }
   
-  @media (max-width: 768px) {
-    .site-container {
-      padding: 0 16px;
-    }
+  /* Nuxt loading bar customization */
+  .nuxt-loading-indicator {
+    background: linear-gradient(
+      to right,
+      #7B3F99, /* Purple */
+      #D93F87, /* Pink */
+      #EF5350  /* Red */
+    ) !important;
   }
   </style>
   

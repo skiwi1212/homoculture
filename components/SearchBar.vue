@@ -22,78 +22,77 @@
     </div>
   </template>
   
-  <script>
-  export default {
-    name: 'SearchBar',
-    data() {
-      return {
-        searchQuery: ''
-      }
-    },
-    methods: {
-      handleSearch() {
-        if (this.searchQuery.trim()) {
-          console.log('Searching for:', this.searchQuery);
-        }
-      }
-    }
-  }
-  </script>
-  
   <style scoped>
-  .search-container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-  }
-  
-  .search-inner {
-    width: 100%;
-  }
-  
-  .search-form {
-    width: 100%;
-  }
-  
-  .search-input-wrapper {
-    position: relative;
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
-  
-  .search-input {
-    width: 100%;
-    padding: 10px;
-    padding-right: 40px; /* Make room for the button */
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-    outline: none;
-  }
-  
-  .search-button {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 36px;
-    height: 36px;
-    background-color: #e6599c;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-  
-  .search-button svg {
-    color: white;
-  }
-  
-  .search-button:hover {
-    background-color: #d63384;
-  }
-  </style>
-  
+.search-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+.search-inner {
+  width: 100%;
+  background-color: white;
+}
+
+.search-form {
+  width: 100%;
+  background-color: white;
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  height: 100%; /* Added to ensure full height */
+}
+
+.search-input {
+  width: 100%;
+  height: 100%; /* Added to ensure full height */
+  padding: 10px;
+  padding-right: 40px;
+  border: 1px solid #e6599c;
+  border-radius: 0; /* Removed rounded corners */
+  font-size: 16px;
+  outline: none;
+  background-color: white !important;
+  -webkit-appearance: none;
+}
+
+.search-button {
+  position: absolute;
+  right: 0;
+  top: 0; /* Changed from 50% */
+  height: 100%; /* Changed to full height */
+  width: 40px;
+  background-color: #e6599c;
+  border: none;
+  border-radius: 0; /* Removed rounded corners */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transform: none; /* Removed transform */
+}
+
+.search-button svg {
+  color: white;
+}
+
+.search-button:hover {
+  background-color: #d63384;
+}
+
+/* Remove if not needed since background is handled above */
+.search-container-wrapper {
+  background-color: white;
+}
+
+:deep(.search-wrapper) {
+  background-color: white;
+}
+</style>

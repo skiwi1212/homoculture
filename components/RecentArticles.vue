@@ -1,111 +1,122 @@
 <!-- components/RecentArticles.vue -->
 <template>
-  <div class="recent-articles-container">
-    <!-- Main content area (80%) -->
-    <div class="articles-wrapper">
-      <h2 class="section-title">Recently Added</h2>
-      <div class="articles-grid">
-        <!-- Non-Gestational Mother Article -->
-        <article class="article-card">
-          <NuxtLink to="/parenting/non-gestational-mother">
-            <div class="image-wrapper">
-              <img 
-                src="https://placehold.co/800x450/e6599c/ffffff?text=Article+1"
-                alt="Non-gestational mother article"
-                class="article-image"
-              />
-            </div>
-            <div class="article-content">
-              <span class="article-category">Parenting and Family</span>
-              <h3 class="article-title">The Strength Of The Non-Gestational Mother In Modern Queer Families</h3>
-              <div class="article-meta">
-                by Brian Webb | March 26, 2025 | Time 6 mins
+  <section class="container-safe py-8">
+    <div class="recent-articles-container">
+      <!-- Main content area -->
+      <div class="articles-wrapper">
+        <h2 class="section-title">Recently Added</h2>
+        <div class="articles-grid">
+          <!-- Non-Gestational Mother Article -->
+          <article class="article-card">
+            <NuxtLink to="/parenting/non-gestational-mother">
+              <div class="image-wrapper">
+                <img 
+                  src="https://placehold.co/800x450/e6599c/ffffff?text=Article+1"
+                  alt="Non-gestational mother article"
+                  class="article-image"
+                />
               </div>
-              <p class="article-excerpt">
-                Empowering non-gestational mothers and celebrating the true meaning of parenthood beyond biology...
-              </p>
-              <span class="read-more">Read More</span>
-            </div>
-          </NuxtLink>
-        </article>
-
-        <!-- Pride Globally Article -->
-        <article class="article-card">
-          <NuxtLink to="/culture/pride-globally">
-            <div class="image-wrapper">
-              <img 
-                src="https://placehold.co/800x450/e6599c/ffffff?text=Article+2"
-                alt="Pride celebration"
-                class="article-image"
-              />
-            </div>
-            <div class="article-content">
-              <span class="article-category">Gay Culture</span>
-              <h3 class="article-title">Escape The Trump Tariffs And Celebrate Pride Globally</h3>
-              <div class="article-meta">
-                by Brian Webb | March 25, 2025 | Time 8 mins
+              <div class="article-content">
+                <span class="article-category">Parenting and Family</span>
+                <h3 class="article-title">The Strength Of The Non-Gestational Mother In Modern Queer Families</h3>
+                <div class="article-meta">
+                  by Brian Webb | March 26, 2025 | Time 6 mins
+                </div>
+                <p class="article-excerpt">
+                  Empowering non-gestational mothers and celebrating the true meaning of parenthood beyond biology...
+                </p>
+                <span class="read-more">Read More</span>
               </div>
-              <p class="article-excerpt">
-                Standing against Trump tariffs with vibrant Pride alternatives across Canada, Mexico, the UK, and Europe...
-              </p>
-              <span class="read-more">Read More</span>
-            </div>
-          </NuxtLink>
-        </article>
+            </NuxtLink>
+          </article>
 
-        <!-- Pre-Screen Article -->
-        <article class="article-card">
-          <NuxtLink to="/encounters/pre-screen-tricks">
-            <div class="image-wrapper">
-              <img 
-                src="https://placehold.co/800x450/e6599c/ffffff?text=Article+3"
-                alt="City nightlife"
-                class="article-image"
-              />
-            </div>
-            <div class="article-content">
-              <span class="article-category">Casual Encounters</span>
-              <h3 class="article-title">How To Pre-Screen Your Tricks For Incredible Encounters</h3>
-              <div class="article-meta">
-                by Brian Webb | March 24, 2025 | Time 7 mins
+          <!-- Pride Globally Article -->
+          <article class="article-card">
+            <NuxtLink to="/culture/pride-globally">
+              <div class="image-wrapper">
+                <img 
+                  src="https://placehold.co/800x450/e6599c/ffffff?text=Article+2"
+                  alt="Pride celebration"
+                  class="article-image"
+                />
               </div>
-              <p class="article-excerpt">
-                Learning how to pre-screen your tricks and set the stage for a successful connection every time...
-              </p>
-              <span class="read-more">Read More</span>
-            </div>
-          </NuxtLink>
-        </article>
-      </div>
-    </div>
+              <div class="article-content">
+                <span class="article-category">Gay Culture</span>
+                <h3 class="article-title">Escape The Trump Tariffs And Celebrate Pride Globally</h3>
+                <div class="article-meta">
+                  by Brian Webb | March 25, 2025 | Time 8 mins
+                </div>
+                <p class="article-excerpt">
+                  Standing against Trump tariffs with vibrant Pride alternatives across Canada, Mexico, the UK, and Europe...
+                </p>
+                <span class="read-more">Read More</span>
+              </div>
+            </NuxtLink>
+          </article>
 
-    <!-- Sidebar (20%) -->
-    <div class="sidebar">
-      <div class="ad-slot">
-        <div class="ad-placeholder">
-          Advertisement
-          <br>160x600
+          <!-- Pre-Screen Article -->
+          <article class="article-card">
+            <NuxtLink to="/encounters/pre-screen-tricks">
+              <div class="image-wrapper">
+                <img 
+                  src="https://placehold.co/800x450/e6599c/ffffff?text=Article+3"
+                  alt="City nightlife"
+                  class="article-image"
+                />
+              </div>
+              <div class="article-content">
+                <span class="article-category">Casual Encounters</span>
+                <h3 class="article-title">How To Pre-Screen Your Tricks For Incredible Encounters</h3>
+                <div class="article-meta">
+                  by Brian Webb | March 24, 2025 | Time 7 mins
+                </div>
+                <p class="article-excerpt">
+                  Learning how to pre-screen your tricks and set the stage for a successful connection every time...
+                </p>
+                <span class="read-more">Read More</span>
+              </div>
+            </NuxtLink>
+          </article>
         </div>
       </div>
-      
-      <div class="ad-slot second-ad">
-        <div class="ad-placeholder">
-          Advertisement
-          <br>160x600
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="ad-wrapper">
+          <div class="ad-slot">
+            <div class="ad-placeholder">
+              Advertisement
+              <br>160x600
+            </div>
+          </div>
+          
+          <div class="ad-slot second-ad">
+            <div class="ad-placeholder">
+              Advertisement
+              <br>160x600
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
+
+<script setup>
+// Empty script setup section
+</script>
 
 <style scoped>
 .recent-articles-container {
   display: flex;
   gap: 20px;
+  width: 100%;
+  align-items: flex-start;
 }
 
 .articles-wrapper {
-  flex: 0 0 80%;
+  flex: 0 0 calc(100% - 180px);
+  margin-top: 0;
 }
 
 .section-title {
@@ -113,6 +124,8 @@
   font-weight: 600;
   margin-bottom: 20px;
   color: #333;
+  margin-top: 0;
+  line-height: 1;
 }
 
 .articles-grid {
@@ -124,7 +137,7 @@
 .article-card {
   background: white;
   border: 1px solid #eee;
-  border-radius: 4px;
+  border-radius: 0;
   overflow: hidden;
   transition: transform 0.2s ease;
 }
@@ -140,7 +153,7 @@
 
 .image-wrapper {
   position: relative;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  padding-top: 56.25%;
   overflow: hidden;
 }
 
@@ -196,10 +209,14 @@
 }
 
 .sidebar {
-  flex: 0 0 20%;
+  flex: 0 0 160px;
+}
+
+.ad-wrapper {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 160px;
 }
 
 .ad-slot {
@@ -221,14 +238,12 @@
   color: #666;
 }
 
-/* Tablet: 2x3 grid */
 @media (max-width: 1024px) {
   .articles-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Mobile: 1x3 grid */
 @media (max-width: 768px) {
   .recent-articles-container {
     flex-direction: column;
@@ -244,6 +259,12 @@
 
   .sidebar {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 24px;
   }
 }
 </style>

@@ -1,22 +1,34 @@
 <!-- components/FeaturedContentBlock.vue -->
 <template>
-    <div class="featured-block">
+    <div class="featured-block-wrapper">
       <!-- Full width rainbow bar -->
       <div class="rainbow-bar"></div>
       
-      <!-- Container for centered content -->
-      <div class="container">
-        <div class="content-container">
-          <h1 class="title">HomoCulture</h1>
-          
-          <h2 class="subtitle">
-            North America's leading LGBTQ publication for:<br>
-            Gay Travel | Pride Events | Gay Culture
-          </h2>
-          
-          <p class="description">
-            HomoCulture is your ultimate go-to guide for LGBTQ+ travel adventures worldwide. Discover vibrant pride events, romantic getaways, memorable life experiences, and cultural experiences tailored for the queer community. Join us on a journey of discovery, acceptance, and celebration as we navigate the rich diversity of queer travel together.
-          </p>
+      <div class="container-safe">
+        <div class="featured-row">
+          <div class="featured-column">
+            <!-- Title text -->
+            <div class="featured-text-module">
+              <div class="featured-text-inner">
+                <h1>HomoCulture</h1>
+              </div>
+            </div>
+            
+            <!-- Subtitle text -->
+            <div class="featured-text-module">
+              <div class="featured-text-inner">
+                <h2 class="text-[#D93F87]">North America's leading LGBTQ publication for:</h2>
+                <h2 class="text-[#D93F87]">Gay Travel | Pride Events | Gay Culture</h2>
+              </div>
+            </div>
+            
+            <!-- Description text -->
+            <div class="featured-text-module">
+              <div class="featured-text-inner">
+                <p>HomoCulture is your ultimate go-to guide for LGBTQ+ travel adventures worldwide. Discover vibrant pride events, romantic getaways, memorable life experiences, and cultural experiences tailored for the queer community. Join us on a journey of discovery, acceptance, and celebration as we navigate the rich diversity of queer travel together.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
@@ -25,22 +37,16 @@
     </div>
   </template>
   
-  <script>
-  export default {
-    name: 'FeaturedContentBlock'
-  }
+  <script setup>
+  // No longer need TextContainer import
   </script>
   
   <style scoped>
-  .featured-block {
-    position: relative;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
+  .featured-block-wrapper {
+    width: 100%;
+    overflow: hidden;
     background-color: black;
     color: white;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
   }
   
   .rainbow-bar {
@@ -52,63 +58,76 @@
     background-repeat: no-repeat;
   }
   
-  .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  .content-container {
+  .featured-row {
     padding: 60px 0;
     width: 100%;
   }
   
-  .title {
-    font-size: 48px;
+  .featured-column {
+    width: 100%;
+  }
+  
+  .featured-text-module {
     margin-bottom: 20px;
+  }
+  
+  .featured-text-module:last-child {
+    margin-bottom: 0;
+  }
+  
+  .featured-text-inner h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin: 0 0 0.5em;
     font-weight: 600;
+    padding: 0;
   }
   
-  .subtitle {
+  .featured-text-inner h2 {
     font-size: 24px;
-    margin-bottom: 30px;
-    color: #ee4d9c;
-    font-weight: 500;
     line-height: 1.4;
+    margin: 0 0 0.5em;
+    font-weight: 500;
+    padding: 0;
   }
   
-  .description {
+  .featured-text-inner h2:last-child {
+    margin-bottom: 0;
+  }
+  
+  .featured-text-inner p {
     font-size: 18px;
     line-height: 1.6;
-    max-width: 900px;
+    margin: 0;
+    padding: 0;
   }
   
   @media (max-width: 768px) {
-    .content-container {
+    .featured-row {
       padding: 40px 0;
     }
     
-    .title {
+    .featured-text-inner h1 {
       font-size: 36px;
     }
     
-    .subtitle {
+    .featured-text-inner h2 {
       font-size: 20px;
     }
     
-    .description {
+    .featured-text-inner p {
       font-size: 16px;
     }
   }
   
   @media (max-width: 480px) {
-    .title {
+    .featured-text-inner h1 {
       font-size: 30px;
     }
     
-    .subtitle {
+    .featured-text-inner h2 {
       font-size: 18px;
     }
   }
   </style>
+  
